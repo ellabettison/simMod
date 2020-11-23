@@ -7,7 +7,7 @@ import numpy as np
 
 
 def get_wq(tx, tc, tu, n):
-    return get_N(tx, tc, tu, n) / get_throughput(tx, tc, tu, n)
+    return (get_N(tx, tc, tu, n) / get_throughput(tx, tc, tu, n)) - get_rk(tc, tu, n)
 
 
 def get_throughput(tx, tc, tu, n):
@@ -45,8 +45,8 @@ def get_p0(tx, tc, tu, n):
 
 
 def get_rk(tc, tu, k):
-    # return 1 / (tc + (k / 2) * tu)
-    return 1 / (tc + tu)
+    return 1 / (tc + (k / 2) * tu)
+    # return 1 / (tc + tu)
 
 
 def get_lambdak(tx, n, k):
